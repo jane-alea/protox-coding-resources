@@ -103,9 +103,8 @@ export default class ShaderTester {
         window.requestAnimationFrame(this.animate);
 
         const now = performance.now();
-        this.deltaTime = 1 / (now - this.lastTime);
+        this.deltaTime = (now - this.lastTime) * 0.001; //deltaTime in seconds
         this.lastTime = now;
-
 
         this.renderer.render(this.scene, this.camera);
 
@@ -129,7 +128,7 @@ export default class ShaderTester {
         });
 
         this.mesh.onBeforeRender = () => {
-            uniforms.uTime.value += 0.01 * this.deltaTime;
+            uniforms.uTime.value += 1.2 * this.deltaTime;
         }
 
         this.mesh.material = shaderMaterial;
