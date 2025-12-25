@@ -10,7 +10,7 @@
     /*--dark-color: 65, 65, 65;*/
     /*--darker-color: 0, 15, 38;*/
     --dark-color: 45, 49, 66;
-    --darker-color: 11, 12, 16;
+    --darker-color: 28, 29, 34;
     --text-color: 255, 240, 240;
 
     --default: 104, 104, 104;
@@ -97,9 +97,6 @@ body {
     cursor: pointer;
     outline: none;
 
-    transition: border-color var(--primary-animation-time) var(--primary-animation-timing-function),
-    box-shadow var(--primary-animation-time) var(--primary-animation-timing-function),
-    background var(--primary-animation-time) var(--primary-animation-timing-function);
 }
 
 .select-wrapper {
@@ -118,10 +115,12 @@ body {
 
     border-radius: var(--corner-rounding);
 
+    border: none;
+
     background: linear-gradient(
             180deg,
-            rgba(var(--dark-color), 0.85),
-            rgba(var(--darker-color), 0.95)
+            rgb(var(--dark-color)),
+            rgb(var(--darker-color))
     );
 
     color: rgb(var(--text-color));
