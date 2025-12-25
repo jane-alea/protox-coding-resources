@@ -25,7 +25,7 @@ export default class ShaderTester {
     fileLoader: FileLoader;
     glbLoader: GLTFLoader;
 
-    mesh: Mesh | SkinnedMesh;
+    mesh: Mesh | SkinnedMesh; // the mac10 is a SkinnedMesh because it's rigged for animations
 
     lastTime: number;
     deltaTime: number;
@@ -103,7 +103,7 @@ export default class ShaderTester {
         window.requestAnimationFrame(this.animate);
 
         const now = performance.now();
-        this.deltaTime = (now - this.lastTime) * 0.001; //deltaTime in seconds
+        this.deltaTime = (now - this.lastTime) * 0.001; // deltaTime in seconds
         this.lastTime = now;
 
         this.renderer.render(this.scene, this.camera);
@@ -128,6 +128,7 @@ export default class ShaderTester {
         });
 
         this.mesh.onBeforeRender = () => {
+            // do not adjust this multiplier and scale the time in the shader instead
             uniforms.uTime.value += 1.2 * this.deltaTime;
         }
 
